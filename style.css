@@ -1,0 +1,276 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #E0D4FC;
+    /* background color (light) */
+    --text: #42326E;
+    /* main text color (dark) */
+    --primary: #B2A6CE;
+    /* header/nav background color */
+    --accent: #B29CE4;
+    /* highlight/hover color */
+    --white: #ffffff;
+    /* white */
+    --border: #6E5B9A;
+    /* light border color */
+    --shadow: #f2BDCD;
+
+    --purpleshadow: plum;
+    --darkshadow: blueviolet;
+    --selected: palevioletred;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f7f3ee;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+}
+
+.flex-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+
+aside {
+    background-color: var(--primary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+fieldset {
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    background: var(--white);
+}
+
+legend {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--text);
+    background: var(--white);
+    border: 2px dashed var(--accent);
+    border-radius: 6px;
+    padding: 8px;
+}
+
+label {
+    text-align: right;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+    font: inherit;
+    background-color: var(--white);
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+
+/* Validation colours only after the user has interacted */
+input:user-valid,
+select:user-valid {
+    border-color: green;
+}
+
+input:user-invalid,
+select:user-invalid {
+    border-color: red;
+}
+
+input[type="datetime-local"]:user-invalid {
+    border-color: red;
+}
+
+input[type="datetime-local"]:user-valid {
+    border-color: green;
+}
+
+.option-group {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.option-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    text-align: left;
+    font-weight: normal;
+    white-space: nowrap;
+}
+
+.option-group input {
+    width: auto;
+}
+
+/* Toppings are allowed to wrap */
+.toppings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+}
+
+.toppings label {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    text-align: left;
+    font-weight: normal;
+}
+
+.toppings input {
+    width: auto;
+}
+
+.button-row {
+    grid-column: 2;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    background-color: var(--accent);
+    color: white;
+}
+
+button[type="reset"] {
+    background-color: #ddd;
+    color: #333;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+aside h2 {
+    margin-top: 0;
+    color: var(--white);
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 450px;
+    border-collapse: collapse;
+    border: 2px solid var(--purpleshadow);
+}
+
+caption {
+    caption-side: top;
+    text-align: left;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+th {
+    background-color: #eee;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--white);
+}
+
+tbody tr:nth-child(odd) {
+    background-color: var(--bg);
+}
+
+tbody tr:hover {
+    background-color: violet;
+}
+
+tfoot {
+    font-weight: bold;
+    background-color: var(--accent);
+}
+
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    main {
+        grid-template-columns: 1fr;
+        margin: 1rem auto;
+    }
+
+    label {
+        text-align: left;
+    }
+
+    .option-group,
+    .toppings {
+        align-items: flex-start;
+    }
+
+    .button-row {
+        grid-column: 1;
+        flex-wrap: wrap;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    form,
+    aside {
+        padding: 1rem;
+    }
+}
